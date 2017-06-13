@@ -19,6 +19,14 @@ const signInFailure = (data) => {
   console.log('error signing out and data is:', data)
 }
 
+const changePasswordSuccess = (data) => {
+  console.log('password changed succesfully and data is:', data)
+}
+
+const changePasswordFailure = (error) => {
+  console.log('error changing password and error is:', error)
+}
+
 const signOutSuccess = (data) => {
   console.log('sign out successful and data:', data)
 }
@@ -32,6 +40,8 @@ module.exports = {
   signUpFailure,
   signInSuccess,
   signInFailure,
+  changePasswordSuccess,
+  changePasswordFailure,
   signOutSuccess,
   signOutFailure
 }
