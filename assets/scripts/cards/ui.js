@@ -24,11 +24,21 @@ const deleteCardFailure = function (error) {
   console.log('could not delete error is:', error)
 }
 
+const updateCardSuccess = function (data) {
+  console.log('card updated and data is:', data)
+}
+
+const updateCardFailure = function (error) {
+  console.log('update failed and error is:', error)
+}
+
 module.exports = {
   getCardsSuccess,
   getCardsFailure,
   createCardSuccess,
   createCardFailure,
   deleteCardSuccess,
-  deleteCardFailure
+  deleteCardFailure,
+  updateCardSuccess,
+  updateCardFailure
 }

@@ -28,10 +28,19 @@ const onDeleteCard = function (event) {
     .catch(ui.deleteCardFailure)
 }
 
+const onUpdateCard = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.updateCard(data)
+    .then(ui.updateCardSuccess)
+    .catch(ui.updateCardFailure)
+}
+
 const addHandlers = () => {
   $('#create-card').on('submit', onCreateCard)
   $('#get-cards').on('submit', onGetCards)
   $('#delete-card').on('submit', onDeleteCard)
+  $('#update-card').on('submit', onUpdateCard)
 }
 
 module.exports = {

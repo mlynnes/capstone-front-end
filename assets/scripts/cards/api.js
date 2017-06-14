@@ -24,6 +24,17 @@ const createCard = function (data) {
   })
 }
 
+const updateCard = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/cards/' + data.card.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const deleteCard = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/cards/' + data.card.id,
@@ -38,5 +49,6 @@ const deleteCard = function (data) {
 module.exports = {
   getCards,
   createCard,
+  updateCard,
   deleteCard
 }
