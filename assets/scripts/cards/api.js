@@ -13,7 +13,7 @@ const getCards = () => {
   })
 }
 
-const createCard = (data) => {
+const createCard = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/cards',
     method: 'POST',
@@ -24,7 +24,19 @@ const createCard = (data) => {
   })
 }
 
+const deleteCard = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/cards/' + data.card.id,
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   getCards,
-  createCard
+  createCard,
+  deleteCard
 }
