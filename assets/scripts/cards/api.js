@@ -3,7 +3,17 @@
 const config = require('../config')
 const store = require('../store')
 
-const createCard = function (data) {
+const getCards = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/cards',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createCard = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/cards',
     method: 'POST',
@@ -15,5 +25,6 @@ const createCard = function (data) {
 }
 
 module.exports = {
+  getCards,
   createCard
 }
