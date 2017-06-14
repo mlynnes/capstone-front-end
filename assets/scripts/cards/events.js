@@ -5,7 +5,14 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 // const store = require('../store.js')
 
-const onCreateCard = function (even) {
+const onGetCards = function (event) {
+  event.preventDefault()
+  api.getCards()
+    .then(ui.getCardsSuccess)
+    .catch(ui.getCardsFailure)
+}
+
+const onCreateCard = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.createCard(data)
@@ -13,8 +20,27 @@ const onCreateCard = function (even) {
     .catch(ui.createCardFailure)
 }
 
+const onDeleteCard = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.deleteCard(data)
+    .then(ui.deleteCardSuccess)
+    .catch(ui.deleteCardFailure)
+}
+
+const onUpdateCard = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.updateCard(data)
+    .then(ui.updateCardSuccess)
+    .catch(ui.updateCardFailure)
+}
+
 const addHandlers = () => {
   $('#create-card').on('submit', onCreateCard)
+  $('#get-cards').on('submit', onGetCards)
+  $('#delete-card').on('submit', onDeleteCard)
+  $('#update-card').on('submit', onUpdateCard)
 }
 
 module.exports = {

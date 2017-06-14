@@ -48,6 +48,12 @@
         </fieldset>
       </form>
       <br>
+      <form id="get-cards">
+        <fieldset>
+          <input type="submit" name="submit" value="Show Your Cards">
+        </fieldset>
+      </form>
+      <br>
       <form id="create-card">
         <fieldset>
           <input type="text" name="card[website]" value="" placeholder="Website/App">
@@ -60,5 +66,28 @@
           <input type="submit" name="submit" value="Create New Card">
         </fieldset>
       </form>
+      <br>
+      <form id="update-card">
+        <fieldset>
+          <input type="text" name="card[id]" value="" placeholder="Enter Card Id">
+          <br>
+          <input type="text" name="card[website]" value="" placeholder="Website/App">
+          <br>
+          <input type="text" name="card[email]" value="" placeholder="Email/Username">
+          <br>
+          <input type="text" name="card[password]" value="" placeholder="Password">
+          <br>
+          <br>
+          <input type="submit" name="submit" value="Edit Card Info">
+        </fieldset>
+      </form>
+      <br>
+      <form id="delete-card">
+        <fieldset>
+          <input type="text" name="card[id]" value="" placeholder="Enter Card Id">
+          <input type="submit" name="submit" value="Delete Card">
+        </fieldset>
+      </form>
+      <br>
     </body>
 </html>
