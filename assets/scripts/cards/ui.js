@@ -1,7 +1,12 @@
 'use strict'
 
-const getCardsSuccess = function (data) {
-  console.log('retrieved cards and data is:', data)
+// const view = require('../view.js')
+const getCardsTemplate = require('../templates/get-cards.handlebars')
+
+const getCardsSuccess = function (response) {
+  console.log('response is:', response)
+  const content = getCardsTemplate({ cards: response.cards })
+  $('.app').html(content)
 }
 
 const getCardsFailure = function (error) {

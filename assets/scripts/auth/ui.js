@@ -13,6 +13,14 @@ const signUpFailure = (error) => {
 const signInSuccess = (response) => {
   store.user = response.user
   console.log('sign in was successful and response is:', response)
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#create-card').show()
+  $('#get-cards').show()
+  $('#delete-card').show()
+  $('#update-card').show()
 }
 
 const signInFailure = (data) => {
@@ -29,6 +37,15 @@ const changePasswordFailure = (error) => {
 
 const signOutSuccess = (data) => {
   console.log('sign out successful and data:', data)
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#create-card').hide()
+  $('#get-cards').hide()
+  $('#delete-card').hide()
+  $('#update-card').hide()
+  $('.app').hide()
 }
 
 const signOutFailure = (error) => {
