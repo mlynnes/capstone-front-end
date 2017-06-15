@@ -14,30 +14,47 @@
     <body class="container-fluid">
 
 
-    <nav class="my-navbar navbar navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
+      <nav class="my-navbar navbar navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
 
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li data-toggle="dropdown" class="dropdown-toggle"><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-          <ul class="dropdown-menu">
-            <li id="sign-up-modal"><a href="#">Sign-up</a></li>
-            <li id="sign-in-modal"><a href="#">Sign-in</a></li>
-            <li id="chng-pw-modal"><a href="#">Change Password</a></li>
-            <li id="sign-out-modal"><a href="#">Sign-out</a></li>
-            <li class="divider"></li>
-            <li id="view-card-btn"><a href="#">View Your Cards</a></li>
-            <li id="add-card-btn" data-toggle="modal" data-target="#addCard-modal"><a href="#">Create Card</a></li>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li data-toggle="dropdown" class="dropdown-toggle"><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+            <ul class="dropdown-menu">
+              <li id="sign-up-modal"><a href="#">Sign-up</a></li>
+              <li id="sign-in-modal"><a href="#">Sign-in</a></li>
+              <li id="chng-pw-modal"><a href="#">Change Password</a></li>
+              <li id="sign-out-modal"><a href="#">Sign-out</a></li>
+              <li class="divider"></li>
+              <li id="view-card-btn"><a href="#">View Your Cards</a></li>
+              <li id="add-card-btn" data-toggle="modal" data-target="#addCard-modal"><a href="#">Create Card</a></li>
+            </ul>
           </ul>
-        </ul>
-      </div>
-  </nav>
+        </div>
+      </nav>
 
-      <h2>Welcome to PwReminder</h2>
-      <p>A place to store all of your username/email and password info across all of the different websites and applications that you use.</p>
-      <p>We know that it can be hard to keep track, so our mission is to make your life a little easier.</p>
-      <p>Sign up with us to start!</p>
+      <header class="intro-header" style="background-image: url('http://imgur.com/a/gqXTP')">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="site-heading">
+                <h1>PwReminder</h1>
+                <hr class="small">
+                <span class="subheading">Sign up to start</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="blurb">
+        <h4>Welcome to PwReminder</h4>
+        <p>A place to store all of your username/email and password info across all of the different websites and applications that you use.</p>
+        <p>We know that it can be hard to keep track, so our mission is to make your life a little easier.</p>
+        <p>Now the only password that you need to remember is the one for this application!</p>
+        <p>Create an information card to get started!</p>
+      </div>
 
       <form id="sign-up">
         <fieldset>
