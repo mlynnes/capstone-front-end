@@ -12,6 +12,28 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+
+
+    <nav class="my-navbar navbar navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li data-toggle="dropdown" class="dropdown-toggle"><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+          <ul class="dropdown-menu">
+            <li id="sign-up-modal"><a href="#">Sign-up</a></li>
+            <li id="sign-in-modal"><a href="#">Sign-in</a></li>
+            <li id="chng-pw-modal"><a href="#">Change Password</a></li>
+            <li id="sign-out-modal"><a href="#">Sign-out</a></li>
+            <li class="divider"></li>
+            <li id="view-card-btn"><a href="#">View Your Cards</a></li>
+            <li id="add-card-btn" data-toggle="modal" data-target="#addCard-modal"><a href="#">Create Card</a></li>
+          </ul>
+        </ul>
+      </div>
+  </nav>
+
       <h2>Welcome to PwReminder</h2>
       <p>A place to store all of your username/email and password info across all of the different websites and applications that you use.</p>
       <p>We know that it can be hard to keep track, so our mission is to make your life a little easier.</p>
