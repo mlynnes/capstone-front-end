@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>PwReminder</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+
+
+      <nav class="my-navbar navbar navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li data-toggle="dropdown" class="dropdown-toggle"><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+            <ul class="dropdown-menu">
+              <li id="sign-up-modal"><a href="#">Sign-up</a></li>
+              <li id="sign-in-modal"><a href="#">Sign-in</a></li>
+              <li id="chng-pw-modal"><a href="#">Change Password</a></li>
+              <li id="sign-out-modal"><a href="#">Sign-out</a></li>
+              <li class="divider"></li>
+              <li id="view-card-btn"><a href="#">View Your Cards</a></li>
+              <li id="add-card-btn" data-toggle="modal" data-target="#addCard-modal"><a href="#">Create Card</a></li>
+            </ul>
+          </ul>
+        </div>
+      </nav>
+
+      <header class="intro-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="site-heading">
+                <h1>PwReminder</h1>
+                <hr class="small">
+                <span id="sub-head" class="subheading">We'll remember so you don't have to!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="welcome">
+        <h4>Sign up or sign in to start! Just click the user icon for the drop down menu.</h4>
+      </div>
+
+      <div id="blurb">
+        <h2>Welcome to PwReminder</h2>
+        <p>A place to store all of your username/email and password info across all of the different websites and applications that you use.</p>
+        <p>We know that it can be hard to keep track, so our mission is to make your life a little easier.</p>
+        <p>Now the only password that you need to remember is the one for this application!</p>
+        <p>Create an information card to get started! Just click on the user icon for the drop down menu.</p>
+      </div>
+
+      <div id="pw-message" class="pw-message"></div>
+
+      <div class="container block collection">
+        <div id="content" class="content"></div>
+      </div>
+
+      <div class="modal fade" id="signUp-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="sign-up-modal-label">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up">
+                <div class="form-group">
+                  <input type="text" name="credentials[email]" id="sign-up-email" placeholder="Email">
+                  <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Password">
+                  <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Password Confirmation">
+                  <input type="submit" name="submit" value="Sign up">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="signIn-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="sign-in-modal-label">Sign In</h4>
+            </div>
+            <div class="modal-body">
+              <form id="sign-in">
+                <div class="form-group">
+                  <input type="text" name="credentials[email]" id="sign-in-email" placeholder="Email">
+                  <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Password">
+                  <input type="submit" name="submit" value="Sign in">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="signOut-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Signing out?</h4>
+            </div>
+            <div class="modal-body">
+              <form id="sign-out">
+                <div class="form-group">
+                  <input type="submit" name="submit" value="Sign out">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="changePassword-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="changePasswordLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <div class="form-group">
+                  <input type="password" name="passwords[old]" id="old-password" placeholder="Old Password">
+                  <input type="password" name="passwords[new]" id="new-password" placeholder="New Password">
+                  <input type="submit" name="submit" value="Change Password">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="addCard-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="add-card-modal-label">Add Card</h4>
+            </div>
+            <div class="modal-body">
+              <form id="card-form">
+                <div class="form-group">
+                  <input type="text" name="card[website]" id="website-input" placeholder="Website" required>
+                  <input type="text" name="card[email]" id="email-input" placeholder="Email">
+                  <input type="text" name="card[password]" id="password-input" placeholder="Password">
+                  <input type="submit" name="submit" value="Add Card">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <form id="sign-up">
+        <fieldset>
+          <input type="text" name="credentials[email]" value="" placeholder="Email">
+          <input type="password" name="credentials[password]" value="" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" value="" placeholder="Password Confirmation">
+          <input type="submit" name="submit" value="Sign Up">
+        </fieldset>
+      </form> -->
+      <!-- <br>
+      <form id="sign-in">
+        <fieldset>
+          <input type="text" name="credentials[email]" value="" placeholder="Email">
+          <input type="password" name="credentials[password]" value="" placeholder="Password">
+          <input type="submit" name="submit" value="Sign In">
+        </fieldset>
+      </form> -->
+      <!-- <br>
+      <form id="sign-out">
+        <fieldset>
+          <input type="submit" name="submit" value="Sign Out">
+        </fieldset>
+      </form>
+      <br> -->
+      <!-- <form id="change-password">
+        <fieldset>
+          <input type="password" name="passwords[old]" value="" placeholder="Original Password">
+          <input type="password" name="passwords[new]" value="" placeholder="New Password">
+          <input type="submit" name="submit" value="Change Password">
+        </fieldset>
+      </form>
+      <br> -->
+      <!-- <div class="app"></div>
+      <form id="get-cards">
+        <fieldset>
+          <input type="submit" name="submit" value="Show Your Cards">
+        </fieldset>
+      </form>
+      <br>
+      <form id="create-card">
+        <fieldset>
+          <input type="text" name="card[website]" value="" placeholder="Website/App">
+          <br>
+          <input type="text" name="card[email]" value="" placeholder="Email/Username">
+          <br>
+          <input type="text" name="card[password]" value="" placeholder="Password">
+          <br>
+          <br>
+          <input type="submit" name="submit" value="Create New Card">
+        </fieldset>
+      </form>
+      <br>
+      <form id="update-card">
+        <fieldset>
+          <input type="text" name="card[id]" value="" placeholder="Enter Card Id">
+          <br>
+          <input type="text" name="card[website]" value="" placeholder="Website/App">
+          <br>
+          <input type="text" name="card[email]" value="" placeholder="Email/Username">
+          <br>
+          <input type="text" name="card[password]" value="" placeholder="Password">
+          <br>
+          <br>
+          <input type="submit" name="submit" value="Edit Card Info">
+        </fieldset>
+      </form>
+      <br>
+      <form id="delete-card">
+        <fieldset>
+          <input type="text" name="card[id]" value="" placeholder="Enter Card Id">
+          <input type="submit" name="submit" value="Delete Card">
+        </fieldset>
+      </form>
+      <br> -->
+    </body>
+</html>
