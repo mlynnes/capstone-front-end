@@ -3,7 +3,6 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
-// const store = require('../store.js')
 
 const onGetCards = function (event) {
   event.preventDefault()
@@ -17,32 +16,57 @@ const onCreateCard = function (event) {
   const data = getFormFields(this)
   api.createCard(data)
     .then(ui.createCardSuccess)
+    .then(() => {
+      api.getCards(data)
+        .then(ui.getCardsSuccess)
+        .catch(ui.getCardsFailure)
+    })
     .catch(ui.createCardFailure)
 }
 
 const onDeleteCard = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
+  console.log(this)
+  const data = $(event.target).attr('data-id')
+  console.log(data)
   api.deleteCard(data)
     .then(ui.deleteCardSuccess)
+    .then(() => {
+      api.getCards(data)
+        .then(ui.getCardsSuccess)
+        .catch(ui.getCardsFailure)
+    })
     .catch(ui.deleteCardFailure)
 }
 
 const onUpdateCard = function (event) {
   event.preventDefault()
+  const id = $(event.target).data('id')
+  // console.log('id is ', id)
   const data = getFormFields(event.target)
+  data.card.id = id
+  console.log('data.card.id is ', data.card.id)
   api.updateCard(data)
     .then(ui.updateCardSuccess)
+    .then(() => {
+      api.getCards(data)
+        .then(ui.getCardsSuccess)
+        .catch(ui.getCardsFailure)
+    })
     .catch(ui.updateCardFailure)
 }
 
-const addHandlers = () => {
-  $('#create-card').on('submit', onCreateCard)
-  $('#get-cards').on('submit', onGetCards)
-  $('#delete-card').on('submit', onDeleteCard)
-  $('#update-card').on('submit', onUpdateCard)
+const onUpdateClose = function (event) {
+  onGetCards()
+  $('.update-card-modal').modal('hide')
+  $('body').removeClass('modal-open')
+  $('modal-backdrop').remove()
 }
 
 module.exports = {
-  addHandlers
+  onGetCards,
+  onCreateCard,
+  onDeleteCard,
+  onUpdateCard,
+  onUpdateClose
 }

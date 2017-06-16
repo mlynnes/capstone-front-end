@@ -41,12 +41,16 @@
               <div class="site-heading">
                 <h1>PwReminder</h1>
                 <hr class="small">
-                <span class="subheading">Sign up to start</span>
+                <span class="subheading">We'll Remember so you don't have to!</span>
               </div>
             </div>
           </div>
         </div>
       </header>
+
+      <div id="welcome">
+        <h5>Sign up or sign in to start!</h5>
+      </div>
 
       <div id="blurb">
         <h4>Welcome to PwReminder</h4>
@@ -56,38 +60,146 @@
         <p>Create an information card to get started!</p>
       </div>
 
-      <form id="sign-up">
+      <div id="message" class="message"></div>
+
+      <div id="pw-message" class="pw-message"></div>
+
+      <div class="container block collection">
+        <div id="content" class="content"></div>
+      </div>
+
+      <div class="modal fade" id="signUp-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="sign-up-modal-label">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up">
+                <div class="form-group">
+                  <input type="text" name="credentials[email]" id="sign-up-email" placeholder="Email">
+                  <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Password">
+                  <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Password Confirmation">
+                  <input type="submit" name="submit" value="Sign up">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="signIn-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="sign-in-modal-label">Sign In</h4>
+            </div>
+            <div class="modal-body">
+              <form id="sign-in">
+                <div class="form-group">
+                  <input type="text" name="credentials[email]" id="sign-in-email" placeholder="Email">
+                  <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Password">
+                  <input type="submit" name="submit" value="Sign in">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="signOut-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Signing out?</h4>
+            </div>
+            <div class="modal-body">
+              <form id="sign-out">
+                <div class="form-group">
+                  <input type="submit" name="submit" value="Sign out">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="changePassword-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="changePasswordLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <div class="form-group">
+                  <input type="password" name="passwords[old]" id="old-password" placeholder="Old Password">
+                  <input type="password" name="passwords[new]" id="new-password" placeholder="New Password">
+                  <input type="submit" name="submit" value="Change Password">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="addCard-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="add-card-modal-label">Add Card</h4>
+            </div>
+            <div class="modal-body">
+              <form id="card-form">
+                <div class="form-group">
+                  <input type="text" name="card[website]" id="website-input" placeholder="Website" required>
+                  <input type="text" name="card[email]" id="email-input" placeholder="Email">
+                  <input type="text" name="card[password]" id="password-input" placeholder="Password">
+                  <input type="submit" name="submit" value="Add Card">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <form id="sign-up">
         <fieldset>
           <input type="text" name="credentials[email]" value="" placeholder="Email">
           <input type="password" name="credentials[password]" value="" placeholder="Password">
           <input type="password" name="credentials[password_confirmation]" value="" placeholder="Password Confirmation">
           <input type="submit" name="submit" value="Sign Up">
         </fieldset>
-      </form>
-      <br>
+      </form> -->
+      <!-- <br>
       <form id="sign-in">
         <fieldset>
           <input type="text" name="credentials[email]" value="" placeholder="Email">
           <input type="password" name="credentials[password]" value="" placeholder="Password">
           <input type="submit" name="submit" value="Sign In">
         </fieldset>
-      </form>
-      <br>
+      </form> -->
+      <!-- <br>
       <form id="sign-out">
         <fieldset>
           <input type="submit" name="submit" value="Sign Out">
         </fieldset>
       </form>
-      <br>
-      <form id="change-password">
+      <br> -->
+      <!-- <form id="change-password">
         <fieldset>
           <input type="password" name="passwords[old]" value="" placeholder="Original Password">
           <input type="password" name="passwords[new]" value="" placeholder="New Password">
           <input type="submit" name="submit" value="Change Password">
         </fieldset>
       </form>
-      <br>
-      <div class="app"></div>
+      <br> -->
+      <!-- <div class="app"></div>
       <form id="get-cards">
         <fieldset>
           <input type="submit" name="submit" value="Show Your Cards">
@@ -128,6 +240,6 @@
           <input type="submit" name="submit" value="Delete Card">
         </fieldset>
       </form>
-      <br>
+      <br> -->
     </body>
 </html>

@@ -12,8 +12,8 @@
     <tbody>
       {{#each cards as |card|}}
       <tr data-id="{{card.id}}" class="card-row">
-        <td contenteditable="false" data-id="{{card.id}}">{{card.email}}</td>
         <td contenteditable="false" data-id="{{card.id}}">{{card.website}}</td>
+        <td contenteditable="false" data-id="{{card.id}}">{{card.email}}</td>
         <td contenteditable="false" data-id="{{card.id}}">{{card.password}}</td>
         <td>
           <button class="btn btn-default update-btn" data-id="{{card.id}}"
@@ -29,9 +29,9 @@
                   <h4 class="modal-title" id="update-card-modal-label">Update</h4>
                 </div>
                 <div class="modal-body">
-                  <form class="card-form-update" data-id="{{card.id}}">
+                  <form class="card-form-update" id="card-form-update" data-id="{{card.id}}">
                     <div class="form-group">
-                      <input type="text" name="card[website]" id="website-update" value="{{card.name}}" placeholder="Website" required>
+                      <input type="text" name="card[website]" id="website-update" value="{{card.website}}" placeholder="Website" required>
                       <input type="text" name="card[email]" id="email-update" value="{{card.email}}" placeholder="Email">
                       <input type="text" name="card[password]" id="password-update" value="{{card.password}}" placeholder="Password">
                       <input type="submit" name="submit" value="Update Info" data-id="{{card.id}}" class="submit-update-button">
@@ -43,9 +43,11 @@
           </div>
         <!-- </td>
         <td> -->
-          <button class="btn btn-default delete-btn" data-id="{{card.id}}">
-            <span class="glyphicon glyphicon-trash"></span>
-          </button>
+        <form class="destroy" data-id="{{card.id}}">
+      <fieldset>
+        <input type="submit" name="submit" value="Delete">
+      </fieldset>
+    </form>
         </td>
       </tr>
         {{/each}}
