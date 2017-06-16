@@ -26,9 +26,7 @@ const onCreateCard = function (event) {
 
 const onDeleteCard = function (event) {
   event.preventDefault()
-  console.log(this)
   const data = $(event.target).attr('data-id')
-  console.log(data)
   api.deleteCard(data)
     .then(ui.deleteCardSuccess)
     .then(() => {
@@ -42,10 +40,8 @@ const onDeleteCard = function (event) {
 const onUpdateCard = function (event) {
   event.preventDefault()
   const id = $(event.target).data('id')
-  // console.log('id is ', id)
   const data = getFormFields(event.target)
   data.card.id = id
-  console.log('data.card.id is ', data.card.id)
   api.updateCard(data)
     .then(ui.updateCardSuccess)
     .then(() => {

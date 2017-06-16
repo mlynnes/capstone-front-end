@@ -3,20 +3,17 @@
 const store = require('../store.js')
 
 const signUpSuccess = (data) => {
-  console.log('sign up was successful and data is:', data)
   $('#signUp-modal').hide()
   $('#signUp-modal').modal('toggle')
   $('.sign-up-btn').hide()
 }
 
-const signUpFailure = (error) => {
-  console.error(error)
+const signUpFailure = () => {
   $('#sign-up-modal-label').text('Error, please try again.')
 }
 
 const signInSuccess = (response) => {
   store.user = response.user
-  console.log('sign in was successful and response is:', response)
   $('#sign-in-modal-label').text('Sign In')
   $('#signIn-modal').modal('hide')
   $('.sign-in-prompt').text(' ')
@@ -26,7 +23,6 @@ const signInSuccess = (response) => {
   $('#card-input-fields').show()
   $('.view-cards-button').show()
   $('.new-card-button').show()
-
   $('#chng-pw-modal').show()
   $('#sign-out-modal').show()
   $('#sign-up-modal').hide()
@@ -35,30 +31,23 @@ const signInSuccess = (response) => {
   $('#add-card-btn').show()
   $('#blurb').show()
   $('#welcome').hide()
-
-  // $('#signUp-modal').hide()
-  // $('#signUp-modal').modal('toggle')
 }
 
 const signInFailure = (data) => {
-  console.log('error signing out and data is:', data)
   $('#sign-in-modal-label').text('Email/Password failure, please try again')
 }
 
 const changePasswordSuccess = (data) => {
-  console.log('password changed succesfully and data is:', data)
   $('#changePassword-modal').hide()
   $('#changePassword-modal').modal('toggle')
   $('.pw-message').text('Password change successful!').delay(5000).fadeOut()
 }
 
-const changePasswordFailure = (error) => {
-  console.log('error changing password and error is:', error)
+const changePasswordFailure = () => {
   $('#changePasswordLabel').text('Error changing password, please try again')
 }
 
 const signOutSuccess = (data) => {
-  console.log('sign out successful and data:', data)
   store.user = null
   $('#signOut-modal').modal('hide')
   $('.hide-on-start').hide()
@@ -73,11 +62,9 @@ const signOutSuccess = (data) => {
   $('#add-card-btn').hide()
   $('#blurb').hide()
   $('#welcome').show()
-  $('.message').hide()
 }
 
-const signOutFailure = (error) => {
-  console.log('error signing out and error is:', error)
+const signOutFailure = () => {
 }
 
 module.exports = {

@@ -36,7 +36,6 @@ const updateCard = function (data) {
 }
 
 const deleteCard = function (data) {
-  console.log('data from api call is ', data)
   return $.ajax({
     url: config.apiOrigin + '/cards/' + data,
     method: 'DELETE',
