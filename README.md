@@ -1,7 +1,8 @@
 # PwReminder
 
-![alt text](http://imgur.com/cmA77Pk)
-![alt text](http://imgur.com/XmeeuTQ)
+![alt text](https://user-images.githubusercontent.com/26203818/27227140-33cdc06a-5270-11e7-9f27-7c69e4f7fee3.png)
+
+![alt text](https://user-images.githubusercontent.com/26203818/27227063-d4259dea-526f-11e7-8c1d-0126aa9a1d7d.png)
 
 ## User Stories
 1. As a user, I want to be able to sign up for an account with automatic sign in.
